@@ -1,0 +1,7 @@
+{
+  "name": "Md Naimur Rashid Portfolio",
+  "description": "Executive Portfolio for Md Naimur Rashid - Textile Engineer & Sustainable Wet Processing Specialist",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
