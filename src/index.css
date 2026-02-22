@@ -6,9 +6,18 @@
   --font-serif: "Playfair Display", serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   
-  --color-brand-gold: #C5A059;
-  --color-brand-navy: #0A192F;
-  --color-brand-slate: #112240;
+  --color-brand-gold: #D4AF37;
+  --color-brand-navy: #050A15;
+  --color-brand-slate: #0F172A;
+  --color-brand-accent: #10B981;
+
+  --animate-gradient: gradient 3s linear infinite;
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 }
 
 @layer base {
@@ -16,14 +25,18 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-slate-50 text-brand-navy selection:bg-brand-gold/30;
+    @apply bg-brand-navy text-slate-300 selection:bg-brand-gold/30 antialiased;
   }
 }
 
 .glass-morphism {
-  @apply bg-white/80 backdrop-blur-md border border-white/20;
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.glass-card {
+  @apply bg-white/[0.02] backdrop-blur-sm border border-white/5 hover:bg-white/[0.05] transition-all duration-500;
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-navy to-brand-gold;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-gold via-white to-brand-gold bg-[length:200%_auto] animate-gradient;
 }

@@ -29,22 +29,22 @@ const Navigation = () => {
   return (
     <>
       <nav className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 py-4",
-        scrolled || !isHome ? "glass-morphism py-3 shadow-lg" : "bg-transparent"
+        "fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 py-6",
+        scrolled || !isHome ? "glass-morphism py-4 shadow-2xl" : "bg-transparent"
       )}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link to="/" className="text-2xl font-serif font-bold text-brand-navy tracking-tight">
+          <Link to="/" className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tighter">
             NAIMUR <span className="text-brand-gold">RASHID</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 to={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors",
-                  location.pathname === link.href ? "text-brand-gold" : "text-brand-navy hover:text-brand-gold"
+                  "text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300",
+                  location.pathname === link.href ? "text-brand-gold" : "text-white/60 hover:text-white"
                 )}
               >
                 {link.name}
@@ -54,14 +54,14 @@ const Navigation = () => {
               href="https://wa.me/8801984154464"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-brand-navy text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-gold transition-all hover:shadow-lg"
+              className="bg-brand-gold text-brand-navy px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white transition-all duration-500 shadow-lg shadow-brand-gold/20"
             >
               Hire Me
             </a>
           </div>
 
           <button 
-            className="md:hidden text-brand-navy"
+            className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
@@ -72,28 +72,33 @@ const Navigation = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-white pt-24 px-6 md:hidden"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-40 bg-brand-navy pt-24 px-6 md:hidden overflow-y-auto"
           >
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-10">
               {navLinks.map((link) => (
                 <Link 
                   key={link.name} 
                   to={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-2xl font-serif font-bold text-brand-navy"
+                  className={cn(
+                    "text-4xl font-serif font-bold transition-colors",
+                    location.pathname === link.href ? "text-brand-gold" : "text-white"
+                  )}
                 >
                   {link.name}
                 </Link>
               ))}
+              <div className="h-px bg-white/10" />
               <a 
                 href="https://wa.me/8801984154464"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-2xl font-serif font-bold text-brand-gold"
+                className="text-4xl font-serif font-bold text-brand-gold"
               >
                 Hire Me
               </a>
@@ -106,19 +111,19 @@ const Navigation = () => {
 };
 
 const Footer = () => (
-  <footer className="bg-brand-navy pt-20 pb-10 text-white">
+  <footer className="bg-brand-navy pt-32 pb-16 text-white border-t border-white/5">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="grid md:grid-cols-4 gap-12 mb-16">
+      <div className="grid md:grid-cols-4 gap-20 mb-24">
         <div className="col-span-2">
-          <h2 className="text-3xl font-serif font-bold mb-6 tracking-tight">NAIMUR <span className="text-brand-gold">RASHID</span></h2>
-          <p className="text-slate-400 max-w-sm mb-8">
+          <h2 className="text-4xl font-serif font-bold mb-8 tracking-tighter">NAIMUR <span className="text-brand-gold">RASHID</span></h2>
+          <p className="text-slate-500 max-w-sm mb-10 leading-relaxed font-light">
             Executive Portfolio of Md Naimur Rashid. Driving innovation and sustainability 
             in the textile industry through advanced wet processing solutions.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-6">
             {[Globe, Briefcase, Award].map((Icon, i) => (
-              <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-gold transition-colors">
-                <Icon size={18} />
+              <a key={i} href="#" className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-gold hover:text-brand-navy transition-all duration-500">
+                <Icon size={20} />
               </a>
             ))}
           </div>

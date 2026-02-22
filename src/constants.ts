@@ -79,12 +79,20 @@ export const SKILLS: Skill[] = [
 
 export const EXPERTISE = {
   washing: [
-    "Enzyme Wash", "Vintage / Aged Wash", "Acid Wash", "Indigo Wash", 
-    "Silicone Softener Wash", "PP Spray", "CPD & Localized Effects"
+    { name: "Enzyme Wash", desc: "Bio-polishing for soft handle and clean surface." },
+    { name: "Vintage / Aged Wash", desc: "Creating authentic worn-in looks through stone and chemical abrasion." },
+    { name: "Acid Wash", desc: "High-contrast marble effects using potassium permanganate soaked stones." },
+    { name: "Indigo Wash", desc: "Specialized processing for indigo-dyed garments to achieve desired shades." },
+    { name: "Silicone Softener Wash", desc: "Enhancing fabric hand-feel and drape with premium silicone emulsions." },
+    { name: "PP Spray", desc: "Localized brightening and fading effects using potassium permanganate." },
+    { name: "CPD & Localized Effects", desc: "Cold Pigment Dyeing and manual localized abrasion for unique fashion looks." }
   ],
   dyeing: [
-    "Pigment Dyeing", "Reactive Dyeing", "Direct Dyeing", 
-    "Tie-Dye & Dip-Dye", "Burnout Dyeing", "Pigment Chalk Method"
+    { name: "Dip Dyeing", desc: "Creating beautiful gradient color transitions on fabrics.", effect: "gradient" },
+    { name: "Tie Dyeing", desc: "Manual binding and dyeing for unique, organic patterns.", effect: "pattern" },
+    { name: "Denim Washing", desc: "Transforming raw denim into fashion-forward pieces.", effect: "transformation" },
+    { name: "Pigment Dyeing", desc: "Achieving vintage, washed-out looks with pigment colors." },
+    { name: "Reactive Dyeing", desc: "High-fastness dyeing for vibrant and durable colors." }
   ],
   technical: [
     "Textile Dyeing Process", "Textile Finishing Process", "Fabric Development",
@@ -92,6 +100,64 @@ export const EXPERTISE = {
     "Machine Operation", "Rejection & Rework Control", "Buyer Compliance Handling"
   ]
 };
+
+export const RD_PROJECT = {
+  title: "Industrial-Scale Natural Mordant Development",
+  certification: "BUET Certified",
+  summary: "A pioneering research project focused on replacing synthetic chemical mordants with sustainable natural alternatives in industrial textile dyeing.",
+  timeline: [
+    { date: "2021 Q3", title: "Research Initiation", desc: "Identification of potential natural sources for mordants." },
+    { date: "2022 Q1", title: "Lab Testing", desc: "Testing color fastness and affinity on various cellulosic fibers." },
+    { date: "2022 Q4", title: "Pilot Production", desc: "Scaling up to 50kg batches in a controlled environment." },
+    { date: "2023 Q2", title: "Industrial Implementation", desc: "Full-scale production integration at Anowara Knit Composite." },
+    { date: "2023 Q4", title: "BUET Certification", desc: "Official validation of results and sustainability impact." }
+  ],
+  phases: [
+    {
+      title: "Research Phase",
+      content: "Extensive literature review and sourcing of natural ingredients like pomegranate peel, myrobalan, and alum alternatives. Focused on eco-toxicity and availability."
+    },
+    {
+      title: "Development Phase",
+      content: "Optimization of extraction methods and application temperatures. Developed a standardized 'Natural Mordant Recipe' compatible with existing industrial machinery."
+    },
+    {
+      title: "Implementation Phase",
+      content: "Successfully replaced 65% of synthetic mordants in reactive dyeing processes. Achieved 35% reduction in overall chemical costs and significantly improved effluent quality."
+    }
+  ],
+  impact: [
+    { name: 'Natural Mordant Use', value: 65, color: '#D4AF37' },
+    { name: 'Synthetic Reduction', value: 35, color: '#10B981' }
+  ]
+};
+
+export const WASH_DEMOS = [
+  {
+    id: 'dip-dye',
+    title: 'Dip Dyeing',
+    subtitle: 'Gradient Transitions',
+    imageBefore: 'https://picsum.photos/seed/dip-before/800/600',
+    imageAfter: 'https://picsum.photos/seed/dip-after/800/600',
+    description: 'A visual demonstration of gradient color transitions on fabrics. Hover to see the transformation from raw fabric to a beautiful dip-dyed gradient.'
+  },
+  {
+    id: 'tie-dye',
+    title: 'Tie Dyeing',
+    subtitle: 'Organic Patterns',
+    imageBefore: 'https://picsum.photos/seed/tie-before/800/600',
+    imageAfter: 'https://picsum.photos/seed/tie-after/800/600',
+    description: 'Showcasing the tie-dyeing effect with dynamic patterns. Manual binding creates unique, non-repeatable designs that define modern sustainable fashion.'
+  },
+  {
+    id: 'denim-wash',
+    title: 'Denim Washing',
+    subtitle: 'Industrial Transformation',
+    imageBefore: 'https://picsum.photos/seed/denim-before/800/600',
+    imageAfter: 'https://picsum.photos/seed/denim-after/800/600',
+    description: 'Transforming raw denim into fashion-forward pieces through stone wash, bleach effects, and localized abrasion.'
+  }
+];
 
 export const WORK_EXPERIENCE: Experience[] = [
   {
